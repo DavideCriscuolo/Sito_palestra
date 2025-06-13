@@ -1,0 +1,238 @@
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  background-color: #fcfaf8;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  right: 0;
+  z-index: 999;
+  .bg_nav {
+    background-color: white;
+    a {
+      font-size: 20px;
+      color: black;
+    }
+    .nav-link:hover {
+      color: #ff4d00;
+    }
+    img {
+      width: 50px;
+      border-radius: 10%;
+    }
+  }
+}
+
+main {
+  min-height: 100vh;
+  .jumbo {
+    background-image: url("./../img/bg_jumbo.png");
+    background-size: cover;
+    height: 1000px;
+    background-position: center;
+    width: 100%;
+    h1 {
+      text-shadow: rgba(9, 9, 9) 0px 54px 55px,
+        rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+        rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+      font-size: 30px;
+    }
+  }
+  .card {
+    .card-img-top {
+      width: 100%;
+    }
+    .btn:hover {
+      background-color: #ff4d00;
+      color: white;
+    }
+  }
+}
+
+.social {
+  i {
+    font-size: 32px;
+  }
+}
+
+footer {
+  height: 100px;
+}
+
+.contet {
+  background-color: aqua;
+}
+@media screen and (max-width: 576px) {
+  html {
+    scroll-padding-top: 190px;
+  }
+  main {
+    .jumbo {
+      height: 450px;
+      h1 {
+        font-size: 40px;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 577px) {
+  main {
+    .jumbo {
+      height: 450px;
+      h1 {
+        font-size: 40px;
+      }
+    }
+
+    .fs_size_title_lg {
+      font-weight: 600;
+      font-size: 30px;
+    }
+    .fs_size_card_title {
+      font-size: 23px;
+    }
+    .fs_size_card_desc {
+      font-size: 18px;
+    }
+    .fs_size_address {
+      font-size: 18px;
+    }
+    .fs_size_info_open {
+      font-size: 18px;
+      line-height: 1.8rem;
+    }
+    .fs_size_desc {
+      font-size: 20px;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  main {
+    .jumbo {
+      height: 800px;
+      h1 {
+        font-size: 40x;
+      }
+    }
+
+    .fs_size_title_lg {
+      font-weight: 600;
+      font-size: 30px;
+    }
+    .fs_size_card_title {
+      font-size: 23px;
+    }
+    .fs_size_card_desc {
+      font-size: 18px;
+    }
+    .fs_size_address {
+      font-size: 18px;
+    }
+    .fs_size_info_open {
+      font-size: 18px;
+      line-height: 1.8rem;
+    }
+    .fs_size_desc {
+      font-size: 20px;
+    }
+  }
+}
+@media screen and (min-width: 992px) {
+  main {
+    .jumbo {
+      height: 1000px;
+      h1 {
+        font-size: 80px;
+      }
+    }
+
+    .fs_size_title_lg {
+      font-weight: 600;
+      font-size: 30px;
+    }
+    .fs_size_card_title {
+      font-size: 18px;
+    }
+    .fs_size_card_desc {
+      font-size: 13px;
+    }
+    .fs_size_address {
+      font-size: 18px;
+    }
+    .fs_size_info_open {
+      font-size: 18px;
+      line-height: 1.8rem;
+    }
+    .fs_size_desc {
+      font-size: 18px;
+    }
+  }
+}
+@media screen and (min-width: 1200px) {
+  main {
+    .jumbo {
+      h1 {
+        font-size: 100px;
+      }
+    }
+
+    .fs_size_title_lg {
+      font-weight: 600;
+      font-size: 30px;
+    }
+    .fs_size_card_title {
+      font-size: 23px;
+    }
+    .fs_size_card_desc {
+      font-size: 18px;
+    }
+    .fs_size_address {
+      font-size: 18px;
+    }
+    .fs_size_info_open {
+      font-size: 18px;
+      line-height: 1.8rem;
+    }
+    .fs_size_desc {
+      font-size: 20px;
+    }
+  }
+}
+@media screen and (min-width: 1400px) {
+  main {
+    .jumbo {
+      h1 {
+        font-size: 100px;
+      }
+    }
+
+    .fs_size_title_lg {
+      font-weight: 600;
+      font-size: 30px;
+    }
+    .fs_size_card_title {
+      font-size: 23px;
+    }
+    .fs_size_card_desc {
+      font-size: 18px;
+    }
+    .fs_size_address {
+      font-size: 18px;
+    }
+    .fs_size_info_open {
+      font-size: 18px;
+      line-height: 1.8rem;
+    }
+    .fs_size_desc {
+      font-size: 20px;
+    }
+  }
+}
