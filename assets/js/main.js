@@ -149,9 +149,8 @@ iscritti.forEach((iscritto) => {
   let fullName = `${nome} ${surname}`;
 
   const optionEl = document.createElement("option");
-
-  optionEl.innerHTML = fullName;
-
+  optionEl.value = fullName;
+  optionEl.textContent = fullName;
   selectUserEl.appendChild(optionEl);
 });
 const optionEl = document.querySelector("option");
@@ -162,19 +161,19 @@ formAdminMisureEL.addEventListener("submit", function (e) {
   const misura2 = Number(inputMisura2El.value);
   const misura3 = Number(inputMisura3El.value);
   const misura4 = Number(inputMisura4El.value);
+  const selectedName = selectUserEl.value;
+  const trovato = iscritti.find(
+    ({ name, surname }) => `${name} ${surname}` === selectedName
+  );
 
-  iscritti.forEach((iscritto) => {
-    let nome = iscritto.name;
-    let surname = iscritto.surname;
-    let fullName = `${nome} ${surname}`;
-    console.log(fullName);
-    console.log(optionEl);
-    if (optionEl === fullName) {
-      iscritto.misuraUno = misura1;
-      iscritto.misuraDue = misura2;
-      iscritto.misuraTre = misura3;
-      iscritto.misuraQuattro = misura4;
-    }
-  });
+  if (trovato) {
+    trovato.misuraUno = misura1;
+    trovato.misuraDue = misura2;
+    trovato.misuraTre = misura3;
+    trovato.misuraQuattro = misura4;
+    console.log("Dati salvati per:", trovato);
+  } else {
+    console.log("Nessun iscritto trovato.");
+  }
   console.log(iscritti);
 });
