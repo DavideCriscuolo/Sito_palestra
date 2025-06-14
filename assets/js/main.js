@@ -88,6 +88,10 @@ const btnLogutEL = document.getElementById("btnLogut");
 const formAdminMisureEL = document.getElementById("formAdminMisure");
 const formAdminSchedaEL = document.getElementById("formAdminScheda");
 const selectUserEl = document.getElementById("selectUser");
+const inputMisura1El = document.getElementById("inputMisura1");
+const inputMisura2El = document.getElementById("inputMisura2");
+const inputMisura3El = document.getElementById("inputMisura3");
+const inputMisura4El = document.getElementById("inputMisura4");
 
 if (formLoginEL) {
   formLoginEL.addEventListener("submit", function (e) {
@@ -126,6 +130,10 @@ if (formLoginEL) {
   });
 }
 
+//pagina Utente
+
+//
+
 btnLogutEL.addEventListener("click", function (e) {
   e.preventDefault();
   console.log("logut");
@@ -139,13 +147,34 @@ iscritti.forEach((iscritto) => {
   let surname = iscritto.surname;
 
   let fullName = `${nome} ${surname}`;
-  console.log(fullName);
+
   const optionEl = document.createElement("option");
 
   optionEl.innerHTML = fullName;
 
-  console.log(selectUserEl);
   selectUserEl.appendChild(optionEl);
 });
+const optionEl = document.querySelector("option");
 
-formAdminMisureEL.addEventListener("submit", function (e) {});
+formAdminMisureEL.addEventListener("submit", function (e) {
+  e.preventDefault();
+  const misura1 = Number(inputMisura1El.value);
+  const misura2 = Number(inputMisura2El.value);
+  const misura3 = Number(inputMisura3El.value);
+  const misura4 = Number(inputMisura4El.value);
+
+  iscritti.forEach((iscritto) => {
+    let nome = iscritto.name;
+    let surname = iscritto.surname;
+    let fullName = `${nome} ${surname}`;
+    console.log(fullName);
+    console.log(optionEl);
+    if (optionEl === fullName) {
+      iscritto.misuraUno = misura1;
+      iscritto.misuraDue = misura2;
+      iscritto.misuraTre = misura3;
+      iscritto.misuraQuattro = misura4;
+    }
+  });
+  console.log(iscritti);
+});
