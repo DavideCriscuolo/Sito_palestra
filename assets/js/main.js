@@ -1,21 +1,31 @@
 const iscritti = [
   {
+    name: "Davide",
+    surname: "Criscuolo",
     email: "davide123@gmail.com",
     password: "admin",
   },
   {
+    name: "Marco",
+    surname: "Rossi",
     email: "davidee@gmail.com",
     password: "admin",
   },
   {
+    name: "Giallo",
+    surname: "Pino",
     email: "gg@gmail.com",
     password: "admin",
   },
   {
+    name: "Mario",
+    surname: "Bianchi",
     email: "ggee@gmail.com",
     password: "admin",
   },
   {
+    name: "Leo",
+    surname: "Nati",
     email: "vito@gmail.com",
     password: "admin",
   },
@@ -68,19 +78,24 @@ potrei anche implementare un bottone che al click fa partire un countdown di 1 m
 
 
 */
-
-const formEl = document.querySelector("form");
+//Elementi Pagina login
+const formLoginEL = document.getElementById("formLogin");
 const inputEmailEL = document.getElementById("email");
 const inputPasswordEL = document.getElementById("password");
 const btnLogutEL = document.getElementById("btnLogut");
 
-if (formEl) {
-  formEl.addEventListener("submit", function (e) {
+//Elementi Pagina admin
+const formAdminMisureEL = document.getElementById("formAdminMisure");
+const formAdminSchedaEL = document.getElementById("formAdminScheda");
+const selectUserEl = document.getElementById("selectUser");
+
+if (formLoginEL) {
+  formLoginEL.addEventListener("submit", function (e) {
     e.preventDefault();
 
-    let emailInput = inputEmailEL.value;
+    let emailInput = inputEmailEL.value.toLowerCase();
     let password = inputPasswordEL.value;
-
+    console.log(emailInput);
     const utenteValid = iscritti.find((iscritto) => {
       if (
         emailInput === iscritto["email"] &&
@@ -116,3 +131,21 @@ btnLogutEL.addEventListener("click", function (e) {
   console.log("logut");
   window.location.href = "./login.html";
 });
+
+// Azioni pagina admin
+
+iscritti.forEach((iscritto) => {
+  let nome = iscritto.name;
+  let surname = iscritto.surname;
+
+  let fullName = `${nome} ${surname}`;
+  console.log(fullName);
+  const optionEl = document.createElement("option");
+
+  optionEl.innerHTML = fullName;
+
+  console.log(selectUserEl);
+  selectUserEl.appendChild(optionEl);
+});
+
+formAdminMisureEL.addEventListener("submit", function (e) {});
