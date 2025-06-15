@@ -26,7 +26,7 @@ const iscritti = [
   {
     name: "Leo",
     surname: "Nati",
-    email: "vito@gmail.com",
+    email: "hh@gmail.com",
     password: "admin",
   },
 ];
@@ -92,56 +92,66 @@ const inputMisura1El = document.getElementById("inputMisura1");
 const inputMisura2El = document.getElementById("inputMisura2");
 const inputMisura3El = document.getElementById("inputMisura3");
 const inputMisura4El = document.getElementById("inputMisura4");
-const divTitleNameUserEl = document.getElementById("titleCard");
-console.log(divTitleNameUserEl);
-formLoginEL.addEventListener("submit", function (e) {
-  e.preventDefault();
+const divEmailEl = document.getElementById("titleCard");
+console.log(divEmailEl);
+if (formLoginEL) {
+  formLoginEL.addEventListener("submit", function (e) {
+    e.preventDefault();
 
-  let emailInput = inputEmailEL.value.toLowerCase();
-  let password = inputPasswordEL.value;
-  console.log(emailInput);
-  const utenteValid = iscritti.find((iscritto) => {
-    if (emailInput === iscritto["email"] && password === iscritto["password"]) {
-      return true;
-    }
-  });
-
-  if (utenteValid) {
-    window.location.href = "./page_user.html";
-
-    const viewFullNameEl = document.createElement("h2");
-    console.log(divTitleNameUserEl);
-    iscritti.forEach((iscritto) => {
-      if (emailInput === iscritto["email"]) {
-        viewFullNameEl.innerHTML = `${iscritto.name}`;
-        divTitleNameUserEl.appendChild(viewFullNameEl);
-        console.log(viewFullNameEl);
+    let emailInput = inputEmailEL.value.toLowerCase();
+    let password = inputPasswordEL.value;
+    console.log(emailInput);
+    const utenteValid = iscritti.find((iscritto) => {
+      if (
+        emailInput === iscritto["email"] &&
+        password === iscritto["password"]
+      ) {
+        return true;
       }
     });
-  } else {
-    const allerta = "Email o Password errati";
-    alert(allerta);
-  }
 
-  const adminValid = admin.find((admin) => {
-    if (emailInput === admin["email"] && password === admin["password"]) {
-      return true;
+    if (utenteValid) {
+      sessionStorage.setItem("userEmail", emailInput); // serve per memorizzare l'email immessa in modo tale da poerci essere utile dopo
+      window.location.href = "./page_user.html";
+      return;
+    } else {
+      const allerta = "Email o Password errati";
+      alert(allerta);
     }
-  });
-  if (adminValid) {
-    window.location.href = "./admin_page.html";
-  } else {
-    const allerta = "Email o Password errati";
-    alert(allerta);
-  }
-  console.log(adminValid);
-});
 
-btnLogutEL.addEventListener("click", function (e) {
-  e.preventDefault();
-  console.log("logut");
-  window.location.href = "./login.html";
-});
+    const adminValid = admin.find((admin) => {
+      if (emailInput === admin["email"] && password === admin["password"]) {
+        return true;
+      }
+    });
+    if (adminValid) {
+      window.location.href = "./admin_page.html";
+      sessionStorage.setItem("userEmail", emailInput);
+
+      return;
+    } else {
+      const allerta = "Email o Password errati";
+      alert(allerta);
+    }
+    console.log(adminValid);
+  });
+}
+if (window.location.pathname.endsWith("page_user.html")) {
+  const email = sessionStorage.getItem("userEmail");
+  const viewFullNameEl = document.createElement("h2");
+  viewFullNameEl.innerHTML = email;
+  divEmailEl.appendChild(viewFullNameEl);
+  console.log((viewFullNameEl.innerHTML = email));
+  console.log(divEmailEl);
+}
+
+if (btnLogutEL) {
+  btnLogutEL.addEventListener("click", function (e) {
+    e.preventDefault();
+    console.log("logut");
+    window.location.href = "./login.html";
+  });
+}
 
 // Azioni pagina admin
 if (formAdminMisureEL) {
