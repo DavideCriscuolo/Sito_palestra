@@ -30,6 +30,19 @@ const iscritti = [
     password: "admin",
   },
 ];
+const iscrittiMisure = [
+  {
+    name: "Davide",
+    surname: "Criscuolo",
+    email: "davide123@gmail.com",
+    password: "admin",
+    misura1: 12,
+    misura2: 45,
+    misura3: 77,
+    misura4: 88,
+    misura5: 15,
+  },
+];
 const admin = [
   {
     email: "vito@gmail.com",
@@ -143,6 +156,15 @@ if (window.location.pathname.endsWith("page_user.html")) {
   divEmailEl.appendChild(viewFullNameEl);
   console.log((viewFullNameEl.innerHTML = email));
   console.log(divEmailEl);
+
+  iscrittiMisure.forEach((iscritto) => {
+    if (iscritto.email === email) {
+      generaMisure(iscrittiMisure);
+    } else {
+      const colMisureEl = document.getElementById("colMisure");
+      colMisureEl.classList.add("d-none");
+    }
+  });
 }
 
 if (btnLogutEL) {
@@ -165,7 +187,6 @@ if (formAdminMisureEL) {
     optionEl.textContent = fullName;
     selectUserEl.appendChild(optionEl);
   });
-  const optionEl = document.querySelector("option");
 
   formAdminMisureEL.addEventListener("submit", function (e) {
     e.preventDefault();
@@ -187,10 +208,25 @@ if (formAdminMisureEL) {
     } else {
       console.log("Nessun iscritto trovato.");
     }
-    console.log(iscritti);
+    console.log(trovato);
   });
 }
 
 //pagina Utente
+function generaMisure(array) {
+  array.forEach((iscritto) => {
+    console.log(iscritto.misura1);
+    console.log(iscritto);
+    const ulMisureEl = document.getElementById("ListMisure");
+    ulMisureEl.classList.add("list-group");
+
+    const markup = `<li class="list-group-item py-3"><span>Spalle : </span>${iscritto.misura1} cm</li>
+<li class="list-group-item py-3"><span>Petto : </span>${iscritto.misura2} cm</li>
+<li class="list-group-item py-3"><span>Bicipite Destro :</span> ${iscritto.misura3} cm</li>
+<li class="list-group-item py-3"><span>Bicipite Sinistro : </span>${iscritto.misura4} cm</li>
+<li class="list-group-item py-3"><span>Vita : </span>${iscritto.misura5} cm</li>`;
+    ulMisureEl.innerHTML = markup;
+  });
+}
 
 //
