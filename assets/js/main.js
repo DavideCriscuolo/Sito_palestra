@@ -4,12 +4,22 @@ const iscritti = [
     surname: "Criscuolo",
     email: "davide123@gmail.com",
     password: "admin",
+    misura1: 12,
+    misura2: 45,
+    misura3: 77,
+    misura4: 88,
+    misura5: 15,
   },
   {
-    name: "Marco",
-    surname: "Rossi",
-    email: "davidee@gmail.com",
+    name: "Leo",
+    surname: "Nati",
+    email: "hhl@gmail.com",
     password: "admin",
+    misura1: 54,
+    misura2: 80,
+    misura3: 99,
+    misura4: 66,
+    misura5: 44,
   },
   {
     name: "Giallo",
@@ -24,25 +34,13 @@ const iscritti = [
     password: "admin",
   },
   {
-    name: "Leo",
-    surname: "Nati",
+    name: "L",
+    surname: "Nat",
     email: "hh@gmail.com",
     password: "admin",
   },
 ];
-const iscrittiMisure = [
-  {
-    name: "Davide",
-    surname: "Criscuolo",
-    email: "davide123@gmail.com",
-    password: "admin",
-    misura1: 12,
-    misura2: 45,
-    misura3: 77,
-    misura4: 88,
-    misura5: 15,
-  },
-];
+
 const admin = [
   {
     email: "vito@gmail.com",
@@ -113,7 +111,7 @@ if (formLoginEL) {
 
     let emailInput = inputEmailEL.value.toLowerCase();
     let password = inputPasswordEL.value;
-    console.log(emailInput);
+
     const utenteValid = iscritti.find((iscritto) => {
       if (
         emailInput === iscritto["email"] &&
@@ -122,7 +120,7 @@ if (formLoginEL) {
         return true;
       }
     });
-
+    console.log(utenteValid);
     const adminValid = admin.find((admin) => {
       if (emailInput === admin["email"] && password === admin["password"]) {
         return true;
@@ -146,22 +144,46 @@ if (formLoginEL) {
 }
 if (window.location.pathname.endsWith("page_user.html")) {
   const email = sessionStorage.getItem("userEmail");
-  const viewFullNameEl = document.createElement("h2");
-  viewFullNameEl.innerHTML = email;
-  divEmailEl.appendChild(viewFullNameEl);
-  console.log((viewFullNameEl.innerHTML = email));
+  const viewEmailEl = document.createElement("h2");
+  viewEmailEl.innerHTML = email;
+  divEmailEl.appendChild(viewEmailEl);
+  console.log((viewEmailEl.innerHTML = email));
   console.log(divEmailEl);
+  const viewFullnameEl = document.createElement("h1");
 
-  iscrittiMisure.forEach((iscritto) => {
+  const trovataEmail = iscritti.find((iscritto) => {
     if (iscritto.email === email) {
-      generaMisure(iscrittiMisure);
+      const ulMisureEl = document.getElementById("ListMisure");
+      ulMisureEl.classList.add("list-group");
+
+      const markup = `<li class="list-group-item py-3"><span>Spalle : </span>${iscritto.misura1} cm</li>
+  <li class="list-group-item py-3"><span>Petto : </span>${iscritto.misura2} cm</li>
+  <li class="list-group-item py-3"><span>Bicipite Destro :</span> ${iscritto.misura3} cm</li>
+  <li class="list-group-item py-3"><span>Bicipite Sinistro : </span>${iscritto.misura4} cm</li>
+  <li class="list-group-item py-3"><span>Vita : </span>${iscritto.misura5} cm</li>`;
+      ulMisureEl.innerHTML = markup;
+      return true;
     } else {
       const colMisureEl = document.getElementById("colMisure");
       colMisureEl.classList.add("d-none");
       const rowEl = document.querySelector(".row");
       rowEl.classList.remove("row-cols-md-2");
+      return false;
     }
   });
+  console.log(trovataEmail);
+
+  // iscritti.forEach((iscritto) => {
+  //   console.log(iscritto.email === email);
+  //   if (iscritto.email === email) {
+  //     generaMisure(iscritti);
+  //   } else {
+  //     const colMisureEl = document.getElementById("colMisure");
+  //     colMisureEl.classList.add("d-none");
+  //     const rowEl = document.querySelector(".row");
+  //     rowEl.classList.remove("row-cols-md-2");
+  //   }
+  // });
 }
 
 if (btnLogutEL) {
@@ -201,6 +223,7 @@ if (formAdminMisureEL) {
       trovato.misuraDue = misura2;
       trovato.misuraTre = misura3;
       trovato.misuraQuattro = misura4;
+
       console.log("Dati salvati per:", trovato);
     } else {
       console.log("Nessun iscritto trovato.");
@@ -210,20 +233,5 @@ if (formAdminMisureEL) {
 }
 
 // funzione pagina Utente
-function generaMisure(array) {
-  array.forEach((iscritto) => {
-    console.log(iscritto.misura1);
-    console.log(iscritto);
-    const ulMisureEl = document.getElementById("ListMisure");
-    ulMisureEl.classList.add("list-group");
-
-    const markup = `<li class="list-group-item py-3"><span>Spalle : </span>${iscritto.misura1} cm</li>
-<li class="list-group-item py-3"><span>Petto : </span>${iscritto.misura2} cm</li>
-<li class="list-group-item py-3"><span>Bicipite Destro :</span> ${iscritto.misura3} cm</li>
-<li class="list-group-item py-3"><span>Bicipite Sinistro : </span>${iscritto.misura4} cm</li>
-<li class="list-group-item py-3"><span>Vita : </span>${iscritto.misura5} cm</li>`;
-    ulMisureEl.innerHTML = markup;
-  });
-}
 
 //
