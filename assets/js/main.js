@@ -123,21 +123,16 @@ if (formLoginEL) {
       }
     });
 
-    if (utenteValid) {
-      sessionStorage.setItem("userEmail", emailInput); // serve per memorizzare l'email immessa in modo tale da poerci essere utile dopo
-      window.location.href = "./page_user.html";
-      return;
-    } else {
-      const allerta = "Email o Password errati";
-      alert(allerta);
-    }
-
     const adminValid = admin.find((admin) => {
       if (emailInput === admin["email"] && password === admin["password"]) {
         return true;
       }
     });
-    if (adminValid) {
+    if (utenteValid) {
+      sessionStorage.setItem("userEmail", emailInput); // serve per memorizzare l'email immessa in modo tale da poerci essere utile dopo
+      window.location.href = "./page_user.html";
+      return;
+    } else if (adminValid) {
       window.location.href = "./admin_page.html";
       sessionStorage.setItem("userEmail", emailInput);
 
@@ -163,6 +158,8 @@ if (window.location.pathname.endsWith("page_user.html")) {
     } else {
       const colMisureEl = document.getElementById("colMisure");
       colMisureEl.classList.add("d-none");
+      const rowEl = document.querySelector(".row");
+      rowEl.classList.remove("row-cols-md-2");
     }
   });
 }
@@ -212,7 +209,7 @@ if (formAdminMisureEL) {
   });
 }
 
-//pagina Utente
+// funzione pagina Utente
 function generaMisure(array) {
   array.forEach((iscritto) => {
     console.log(iscritto.misura1);
