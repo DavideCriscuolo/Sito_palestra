@@ -5,10 +5,10 @@ const iscritti = [
     email: "davide123@gmail.com",
     password: "admin",
     misura1: 12,
-    misura2: 45,
-    misura3: 77,
-    misura4: 88,
-    misura5: 15,
+    misura2: 12,
+    misura3: 12,
+    misura4: 12,
+    misura5: 12,
   },
   {
     name: "Leo",
@@ -16,10 +16,10 @@ const iscritti = [
     email: "hhl@gmail.com",
     password: "admin",
     misura1: 54,
-    misura2: 80,
-    misura3: 99,
-    misura4: 66,
-    misura5: 44,
+    misura2: 74,
+    misura3: 87,
+    misura4: 96,
+    misura5: 55,
   },
   {
     name: "Giallo",
@@ -151,27 +151,36 @@ if (window.location.pathname.endsWith("page_user.html")) {
   console.log(divEmailEl);
   const viewFullnameEl = document.createElement("h1");
 
-  const trovataEmail = iscritti.find((iscritto) => {
-    if (iscritto.email === email) {
+  const trovataIscritto = iscritti.find((iscritto) => {
+    if (iscritto.email === email && "misura1" in iscritto) {
+      console.log(iscritto.misura1);
       const ulMisureEl = document.getElementById("ListMisure");
       ulMisureEl.classList.add("list-group");
 
       const markup = `<li class="list-group-item py-3"><span>Spalle : </span>${iscritto.misura1} cm</li>
-  <li class="list-group-item py-3"><span>Petto : </span>${iscritto.misura2} cm</li>
-  <li class="list-group-item py-3"><span>Bicipite Destro :</span> ${iscritto.misura3} cm</li>
-  <li class="list-group-item py-3"><span>Bicipite Sinistro : </span>${iscritto.misura4} cm</li>
-  <li class="list-group-item py-3"><span>Vita : </span>${iscritto.misura5} cm</li>`;
+       <li class="list-group-item py-3"><span>Petto : </span>${iscritto.misura2} cm</li>
+       <li class="list-group-item py-3"><span>Bicipite Destro :</span> ${iscritto.misura3} cm</li>
+       <li class="list-group-item py-3"><span>Bicipite Sinistro : </span>${iscritto.misura4} cm</li>
+       <li class="list-group-item py-3"><span>Vita : </span>${iscritto.misura5} cm</li>`;
       ulMisureEl.innerHTML = markup;
+      console.log(ulMisureEl);
       return true;
     } else {
-      const colMisureEl = document.getElementById("colMisure");
-      colMisureEl.classList.add("d-none");
-      const rowEl = document.querySelector(".row");
-      rowEl.classList.remove("row-cols-md-2");
+      //   const colMisureEl = document.getElementById("colMisure");
+      //   colMisureEl.classList.add("d-none");
+      //   const rowEl = document.querySelector(".row");
+      //   rowEl.classList.remove("row-cols-md-2");
       return false;
     }
   });
-  console.log(trovataEmail);
+  console.log(trovataIscritto);
+
+  if (trovataIscritto === undefined) {
+    const colMisureEl = document.getElementById("colMisure");
+    colMisureEl.classList.add("d-none");
+    const rowEl = document.querySelector(".row");
+    rowEl.classList.remove("row-cols-md-2");
+  }
 
   // iscritti.forEach((iscritto) => {
   //   console.log(iscritto.email === email);
@@ -219,19 +228,26 @@ if (formAdminMisureEL) {
     );
 
     if (trovato) {
-      trovato.misuraUno = misura1;
-      trovato.misuraDue = misura2;
-      trovato.misuraTre = misura3;
-      trovato.misuraQuattro = misura4;
-
+      trovato.misura1 = misura1;
+      trovato.misura2 = misura2;
+      trovato.misura3 = misura3;
+      trovato.misura4 = misura4;
+      const modalEl = document.querySelector(".overlay");
+      modalEl.classList.remove("d-none");
+      modalEl.classList.add("d-flex");
+      const textModal = document.querySelector(".text_intern_modal");
+      textModal.innerHTML = `<h5 class="p-1">Hai salvato con successo le misure!</h5>`;
+      console.log(modalEl);
       console.log("Dati salvati per:", trovato);
     } else {
       console.log("Nessun iscritto trovato.");
     }
-    console.log(trovato);
   });
 }
 
-// funzione pagina Utente
-
-//
+const btnCloseModal = document.getElementById("closeModal");
+btnCloseModal.addEventListener("click", function () {
+  const modalEl = document.querySelector(".overlay");
+  modalEl.classList.remove("d-flex");
+  modalEl.classList.add("d-none");
+});

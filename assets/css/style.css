@@ -6,68 +6,85 @@ html {
 body {
   font-family: "Montserrat", sans-serif;
   background-color: #fcfaf8;
-}
-
-header {
-  position: sticky;
-  top: 0;
-  right: 0;
-  z-index: 999;
-  .bg_nav {
-    background-color: white;
-    a {
-      font-size: 20px;
-      color: black;
-    }
-    .nav-link:hover {
-      color: #ff4d00;
-    }
-    img {
-      width: 50px;
-      border-radius: 10%;
-    }
-  }
-}
-
-main {
-  min-height: 100vh;
-  .jumbo {
-    background-image: url("./../img/bg_jumbo.png");
-    background-size: cover;
-    height: 1000px;
-    background-position: center;
-    width: 100%;
-    h1 {
-      text-shadow: rgba(9, 9, 9) 0px 54px 55px,
-        rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
-        rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-      font-size: 30px;
+  header {
+    position: sticky;
+    top: 0;
+    right: 0;
+    z-index: 999;
+    .bg_nav {
+      background-color: white;
+      a {
+        font-size: 20px;
+        color: black;
+      }
+      .nav-link:hover {
+        color: #ff4d00;
+      }
+      img {
+        width: 50px;
+        border-radius: 10%;
+      }
     }
   }
-  .card {
-    .card-img-top {
+
+  main {
+    min-height: 100vh;
+    .jumbo {
+      background-image: url("./../img/bg_jumbo.png");
+      background-size: cover;
+      height: 1000px;
+      background-position: center;
       width: 100%;
+      h1 {
+        text-shadow: rgba(9, 9, 9) 0px 54px 55px,
+          rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+          rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+        font-size: 30px;
+      }
     }
-    .btn:hover {
-      background-color: #ff4d00;
-      color: white;
+    .card {
+      .card-img-top {
+        width: 100%;
+      }
+      .btn:hover {
+        background-color: #ff4d00;
+        color: white;
+      }
+    }
+  }
+
+  .social {
+    i {
+      font-size: 32px;
+    }
+  }
+
+  footer {
+    height: 100px;
+  }
+
+  .contet {
+    background-color: aqua;
+  }
+
+  .overlay {
+    min-height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.499);
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 1000;
+
+    .box {
+      height: 150px;
+      width: 600px;
+      border-radius: 10px;
+      background-color: #fcfaf8;
     }
   }
 }
 
-.social {
-  i {
-    font-size: 32px;
-  }
-}
-
-footer {
-  height: 100px;
-}
-
-.contet {
-  background-color: aqua;
-}
 @media screen and (max-width: 576px) {
   html {
     scroll-padding-top: 190px;
