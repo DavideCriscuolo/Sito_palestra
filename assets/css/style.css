@@ -51,9 +51,13 @@ body {
         color: white;
       }
     }
+    iframe {
+      border-radius: 10px;
+    }
   }
 
   .social {
+    height: 100%;
     i {
       font-size: 32px;
     }
@@ -61,6 +65,7 @@ body {
 
   footer {
     height: 100px;
+    border-top: 1px solid #ff4d00;
   }
 
   .contet {
