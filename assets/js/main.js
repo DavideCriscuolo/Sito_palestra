@@ -244,10 +244,46 @@ if (formAdminMisureEL) {
     }
   });
 }
+if (window.location.pathname.endsWith("admin_page.html")) {
+  const btnCloseModal = document.getElementById("closeModal");
+  btnCloseModal.addEventListener("click", function () {
+    const modalEl = document.querySelector(".overlay");
+    modalEl.classList.remove("d-flex");
+    modalEl.classList.add("d-none");
+  });
+}
 
-const btnCloseModal = document.getElementById("closeModal");
-btnCloseModal.addEventListener("click", function () {
-  const modalEl = document.querySelector(".overlay");
-  modalEl.classList.remove("d-flex");
-  modalEl.classList.add("d-none");
-});
+if (window.location.pathname.endsWith("index.html")) {
+  const colServiceEl = document.querySelectorAll(".col");
+  console.log(colServiceEl);
+  colServiceEl.forEach((card) => {
+    const cardEl = document.querySelector(".card");
+    card.addEventListener("mouseenter", function () {
+      const cardBody = card.querySelector(".card-body");
+      cardBody.classList.add("visible");
+    });
+    card.addEventListener("mouseleave", function () {
+      const cardBody = card.querySelector(".card-body");
+      cardBody.classList.remove("visible");
+    });
+  });
+}
+
+// boxcontainerEl.forEach((box) => {
+//   const boxDescEl = box.querySelector(".dec_box");
+//   let timeUotiid;
+//   console.log(boxDescEl);
+//   box.addEventListener("mouseenter", function () {
+//     box.style.height = "400px";
+//     timeUotiid = setTimeout(() => {
+//       //per ritardare la visone del testo
+//       boxDescEl.classList.add("visible");
+//     }, 400);
+//   });
+
+//   box.addEventListener("mouseleave", function () {
+//     box.style.height = "200px";
+//     boxDescEl.classList.remove("visible");
+//     clearTimeout(timeUotiid);
+//   });
+// });

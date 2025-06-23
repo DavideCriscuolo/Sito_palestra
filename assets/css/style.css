@@ -46,47 +46,61 @@ body {
       .card-img-top {
         width: 100%;
       }
-      .btn:hover {
-        background-color: #ff4d00;
-        color: white;
+      .card-body {
+        opacity: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: opacity 0.8s ease, max-height 0.8s ease;
+        visibility: hidden;
+        padding: 0;
+      }
+      .visible {
+        opacity: 1;
+        max-height: 500px; /* o qualcosa che copre l'altezza massima che può avere */
+        visibility: visible;
       }
     }
-    iframe {
-      border-radius: 10px;
+
+    .btn:hover {
+      background-color: #ff4d00;
+      color: white;
     }
   }
-
-  .social {
-    height: 100%;
-    i {
-      font-size: 32px;
-    }
+  iframe {
+    border-radius: 10px;
   }
+}
 
-  footer {
-    height: 100px;
-    border-top: 1px solid #ff4d00;
+.social {
+  height: 100%;
+  i {
+    font-size: 32px;
   }
+}
 
-  .contet {
-    background-color: aqua;
-  }
+footer {
+  height: 100px;
+  border-top: 1px solid #ff4d00;
+}
 
-  .overlay {
-    min-height: 100%;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.499);
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    z-index: 1000;
+.contet {
+  background-color: aqua;
+}
 
-    .box {
-      height: 150px;
-      width: 600px;
-      border-radius: 10px;
-      background-color: #fcfaf8;
-    }
+.overlay {
+  min-height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.499);
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 1000;
+
+  .box {
+    height: 150px;
+    width: 600px;
+    border-radius: 10px;
+    background-color: #fcfaf8;
   }
 }
 
