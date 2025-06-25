@@ -149,7 +149,6 @@ if (window.location.pathname.endsWith("page_user.html")) {
   divEmailEl.appendChild(viewEmailEl);
   console.log((viewEmailEl.innerHTML = email));
   console.log(divEmailEl);
-  const viewFullnameEl = document.createElement("h1");
 
   const trovataIscritto = iscritti.find((iscritto) => {
     if (iscritto.email === email && "misura1" in iscritto) {
@@ -257,13 +256,12 @@ if (window.location.pathname.endsWith("index.html")) {
   const colServiceEl = document.querySelectorAll(".col");
   console.log(colServiceEl);
   colServiceEl.forEach((card) => {
-    const cardEl = document.querySelector(".card");
     card.addEventListener("mouseenter", function () {
-      const cardBody = card.querySelector(".card-body");
+      const cardBody = card.querySelector(".cardBodyHome");
       cardBody.classList.add("visible");
     });
     card.addEventListener("mouseleave", function () {
-      const cardBody = card.querySelector(".card-body");
+      const cardBody = card.querySelector(".cardBodyHome");
       cardBody.classList.remove("visible");
     });
   });

@@ -46,7 +46,7 @@ body {
       .card-img-top {
         width: 100%;
       }
-      .card-body {
+      .cardBodyHome {
         opacity: 0;
         max-height: 0;
         overflow: hidden;
