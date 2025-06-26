@@ -273,27 +273,27 @@ if (window.location.pathname.endsWith("index.html")) {
       cardBody.classList.remove("visible");
     });
   });
+  //modale per il login
+
+  const linkAccediEL = document.getElementById("linkAccedi");
+
+  linkAccediEL.addEventListener("click", function (e) {
+    e.preventDefault();
+    const overlayIndexEl = document.querySelector(".overlayIndex");
+    overlayIndexEl.classList.remove("noVisible");
+    overlayIndexEl.classList.add("visibleIndex");
+  });
+
+  //chisura modale per login
+  const closeModaleEl = document.querySelector(".closeModal");
+
+  closeModaleEl.addEventListener("click", function (e) {
+    e.preventDefault();
+    const overlayIndexEl = document.querySelector(".overlayIndex");
+    overlayIndexEl.classList.remove("visibleIndex");
+    overlayIndexEl.classList.add("noVisible");
+  });
 }
-
-//modale per il login
-const linkAccediEL = document.getElementById("linkAccedi");
-
-linkAccediEL.addEventListener("click", function (e) {
-  e.preventDefault();
-  const overlayIndexEl = document.querySelector(".overlayIndex");
-  overlayIndexEl.classList.remove("noVisible");
-  overlayIndexEl.classList.add("visibleIndex");
-});
-
-//chisura modale per login
-const closeModaleEl = document.querySelector(".closeModal");
-
-closeModaleEl.addEventListener("click", function (e) {
-  e.preventDefault();
-  const overlayIndexEl = document.querySelector(".overlayIndex");
-  overlayIndexEl.classList.remove("visibleIndex");
-  overlayIndexEl.classList.add("noVisible");
-});
 
 // boxcontainerEl.forEach((box) => {
 //   const boxDescEl = box.querySelector(".dec_box");
