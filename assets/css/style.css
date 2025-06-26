@@ -56,7 +56,7 @@ body {
       }
       .visible {
         opacity: 1;
-        max-height: 500px; /* o qualcosa che copre l'altezza massima che può avere */
+        max-height: 500px;
         visibility: visible;
       }
     }
@@ -68,6 +68,35 @@ body {
   }
   iframe {
     border-radius: 10px;
+  }
+
+  .noVisible {
+    visibility: hidden;
+    opacity: 0;
+  }
+  .visibleIndex {
+    opacity: 1;
+    visibility: visible;
+  }
+  .overlayIndex {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.499);
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 1000;
+
+    .modale {
+      height: 100%;
+    }
+    #formLogin {
+      height: 350px;
+      width: 600px;
+      background-color: #fcfaf8;
+      border-radius: 20px;
+      padding: 20px;
+    }
   }
 }
 

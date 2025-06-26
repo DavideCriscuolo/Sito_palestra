@@ -41,7 +41,7 @@
                             <a class="nav-link" href="#service">I Nostri Servizi</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./login.html">Accedi</a>
+                            <a id="linkAccedi" class="nav-link" href="">Accedi</a>
                         </li>
                     </ul>
 
@@ -210,6 +210,35 @@
             <i class="fa-brands fa-instagram"></i>
             <i class="fa-brands fa-facebook"></i>
     </footer>
+
+    <div class="overlayIndex noVisible">
+
+        <div class="modale">
+            <div class="container d-flex justify-content-center align-items-center h-100">
+                <form id="formLogin">
+                    <div class=" d-flex justify-content-between align-items-center">
+                        <div class="titleModale">
+                            <h4>Inserisci le tue Credenziali</h4>
+                        </div>
+                        <div class="closeModal"><button class="btn btn-secondary ">X</button> </div>
+                    </div>
+                    <div class="my-3  ">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelpId"
+                            placeholder="abc@mail.com" required />
+                    </div>
+                    <div class="my-4 ">
+                        <label for="password" class="form-label">Password</label>
+                        <input class="form-control " type="password" name="password" id="password">
+                    </div>
+
+                    <div class="text-center p-3"><button c class="btn btn-success" type="submit">Accedi</button> </div>
+                </form>
+            </div>
+        </div>
+
+
+    </div>
     <!-- Bootstrap JavaScript Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"

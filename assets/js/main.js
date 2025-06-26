@@ -127,7 +127,7 @@ if (formLoginEL) {
       }
     });
     if (utenteValid) {
-      sessionStorage.setItem("userEmail", emailInput); // serve per memorizzare l'email immessa in modo tale da poerci essere utile dopo
+      sessionStorage.setItem("userEmail", emailInput); // serve per memorizzare l'email immessa in modo tale da poterci  essere utile dopo
       window.location.href = "./page_user.html";
       return;
     } else if (adminValid) {
@@ -142,6 +142,8 @@ if (formLoginEL) {
     console.log(adminValid);
   });
 }
+
+// Page User
 if (window.location.pathname.endsWith("page_user.html")) {
   const email = sessionStorage.getItem("userEmail");
   const viewEmailEl = document.createElement("h2");
@@ -155,7 +157,7 @@ if (window.location.pathname.endsWith("page_user.html")) {
       console.log(iscritto.misura1);
       const ulMisureEl = document.getElementById("ListMisure");
       ulMisureEl.classList.add("list-group");
-
+      //il markup che genera gli elementi della colonna msiure
       const markup = `<li class="list-group-item py-3"><span>Spalle : </span>${iscritto.misura1} cm</li>
        <li class="list-group-item py-3"><span>Petto : </span>${iscritto.misura2} cm</li>
        <li class="list-group-item py-3"><span>Bicipite Destro :</span> ${iscritto.misura3} cm</li>
@@ -174,6 +176,7 @@ if (window.location.pathname.endsWith("page_user.html")) {
   });
   console.log(trovataIscritto);
 
+  // se l iscritto non ha misure viene nascosta la colonna misure
   if (trovataIscritto === undefined) {
     const colMisureEl = document.getElementById("colMisure");
     colMisureEl.classList.add("d-none");
@@ -181,7 +184,6 @@ if (window.location.pathname.endsWith("page_user.html")) {
     rowEl.classList.remove("row-cols-md-2");
   }
 
-  // iscritti.forEach((iscritto) => {
   //   console.log(iscritto.email === email);
   //   if (iscritto.email === email) {
   //     generaMisure(iscritti);
@@ -194,11 +196,12 @@ if (window.location.pathname.endsWith("page_user.html")) {
   // });
 }
 
+// bottone logout
 if (btnLogutEL) {
   btnLogutEL.addEventListener("click", function (e) {
     e.preventDefault();
     console.log("logut");
-    window.location.href = "./login.html";
+    window.location.href = "./index.html";
   });
 }
 
@@ -208,6 +211,7 @@ if (formAdminMisureEL) {
     let nome = iscritto.name;
     let surname = iscritto.surname;
 
+    // appende il nome e cognome del cliente all interno del select quindi come option
     let fullName = `${nome} ${surname}`;
     const optionEl = document.createElement("option");
     optionEl.value = fullName;
@@ -215,6 +219,7 @@ if (formAdminMisureEL) {
     selectUserEl.appendChild(optionEl);
   });
 
+  //eventListner per andare a creare una nuva chhiave valore nell oggetto
   formAdminMisureEL.addEventListener("submit", function (e) {
     e.preventDefault();
     const misura1 = Number(inputMisura1El.value);
@@ -243,6 +248,8 @@ if (formAdminMisureEL) {
     }
   });
 }
+
+// Modale per le misure caricate
 if (window.location.pathname.endsWith("admin_page.html")) {
   const btnCloseModal = document.getElementById("closeModal");
   btnCloseModal.addEventListener("click", function () {
@@ -252,6 +259,7 @@ if (window.location.pathname.endsWith("admin_page.html")) {
   });
 }
 
+// effetto delle card nella pagina index
 if (window.location.pathname.endsWith("index.html")) {
   const colServiceEl = document.querySelectorAll(".col");
   console.log(colServiceEl);
@@ -266,6 +274,26 @@ if (window.location.pathname.endsWith("index.html")) {
     });
   });
 }
+
+//modale per il login
+const linkAccediEL = document.getElementById("linkAccedi");
+
+linkAccediEL.addEventListener("click", function (e) {
+  e.preventDefault();
+  const overlayIndexEl = document.querySelector(".overlayIndex");
+  overlayIndexEl.classList.remove("noVisible");
+  overlayIndexEl.classList.add("visibleIndex");
+});
+
+//chisura modale per login
+const closeModaleEl = document.querySelector(".closeModal");
+
+closeModaleEl.addEventListener("click", function (e) {
+  e.preventDefault();
+  const overlayIndexEl = document.querySelector(".overlayIndex");
+  overlayIndexEl.classList.remove("visibleIndex");
+  overlayIndexEl.classList.add("noVisible");
+});
 
 // boxcontainerEl.forEach((box) => {
 //   const boxDescEl = box.querySelector(".dec_box");
