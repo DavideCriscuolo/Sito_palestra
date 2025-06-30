@@ -141,11 +141,13 @@ footer {
   html {
     scroll-padding-top: 190px;
   }
-  main {
-    .jumbo {
-      height: 450px;
-      h1 {
-        font-size: 40px;
+  body {
+    main {
+      .jumbo {
+        height: 450px;
+        h1 {
+          font-size: 40px;
+        }
       }
     }
   }
