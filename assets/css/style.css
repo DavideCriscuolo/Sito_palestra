@@ -34,7 +34,7 @@ body {
     min-height: 100vh;
     .jumbo {
       background-image: url("./../img/bg_jumbo.png");
-      background-size: contain;
+      background-size: cover;
       height: 1000px;
       width: 100%;
       background-position: center;
