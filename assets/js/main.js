@@ -105,7 +105,18 @@ const inputMisura2El = document.getElementById("inputMisura2");
 const inputMisura3El = document.getElementById("inputMisura3");
 const inputMisura4El = document.getElementById("inputMisura4");
 const divEmailEl = document.getElementById("titleCard");
-console.log(divEmailEl);
+
+const linkAccediEL = document.getElementById("linkAccedi");
+
+if (linkAccediEL) {
+  linkAccediEL.addEventListener("click", function (e) {
+    e.preventDefault();
+    const overlayIndexEl = document.querySelector(".overlayIndex");
+    overlayIndexEl.classList.remove("noVisible");
+    overlayIndexEl.classList.add("visibleIndex");
+  });
+}
+
 if (formLoginEL) {
   formLoginEL.addEventListener("submit", function (e) {
     e.preventDefault();
@@ -267,23 +278,18 @@ if (window.location.pathname.endsWith("index.html")) {
   colServiceEl.forEach((card) => {
     card.addEventListener("mouseenter", function () {
       const cardBody = card.querySelector(".cardBodyHome");
-      cardBody.classList.add("visible");
+      if (cardBody) {
+        cardBody.classList.add("visible");
+      }
     });
     card.addEventListener("mouseleave", function () {
       const cardBody = card.querySelector(".cardBodyHome");
-      cardBody.classList.remove("visible");
+      if (cardBody) {
+        cardBody.classList.remove("visible");
+      }
     });
   });
   //modale per il login
-
-  const linkAccediEL = document.getElementById("linkAccedi");
-
-  linkAccediEL.addEventListener("click", function (e) {
-    e.preventDefault();
-    const overlayIndexEl = document.querySelector(".overlayIndex");
-    overlayIndexEl.classList.remove("noVisible");
-    overlayIndexEl.classList.add("visibleIndex");
-  });
 
   //chisura modale per login
   const closeModaleEl = document.querySelector(".closeModal");
