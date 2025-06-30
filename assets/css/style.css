@@ -24,6 +24,9 @@ body {
         width: 50px;
         border-radius: 10%;
       }
+      h1 {
+        text-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+      }
     }
   }
 
@@ -31,8 +34,9 @@ body {
     min-height: 100vh;
     .jumbo {
       background-image: url("./../img/bg_jumbo.png");
-      background-size: cover;
+      background-size: contain;
       height: 1000px;
+      width: 100%;
       background-position: center;
       width: 100%;
       h1 {
@@ -151,6 +155,7 @@ footer {
   main {
     .jumbo {
       height: 450px;
+
       h1 {
         font-size: 40px;
       }
