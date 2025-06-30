@@ -220,7 +220,7 @@ if (formAdminMisureEL) {
     selectUserEl.appendChild(optionEl);
   });
 
-  //eventListner per andare a creare una nuva chhiave valore nell oggetto
+  //eventListner per andare a creare una nuva chiave valore nell oggetto
   formAdminMisureEL.addEventListener("submit", function (e) {
     e.preventDefault();
     const misura1 = Number(inputMisura1El.value);
