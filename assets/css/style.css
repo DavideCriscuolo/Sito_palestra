@@ -218,7 +218,7 @@ footer {
 @media screen and (min-width: 992px) {
   main {
     .jumbo {
-      height: 1000px;
+      height: 500px;
       h1 {
         font-size: 80px;
       }
