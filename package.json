@@ -1,0 +1,24 @@
+{
+  "name": "sito_palestra",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DavideCriscuolo/Sito_palestra.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DavideCriscuolo/Sito_palestra/issues"
+  },
+  "homepage": "https://github.com/DavideCriscuolo/Sito_palestra#readme",
+  "description": "",
+  "dependencies": {
+    "express": "^5.1.0",
+    "mysql2": "^3.14.1"
+  }
+}
