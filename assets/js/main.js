@@ -1,3 +1,5 @@
+const { response } = require("express");
+
 const iscritti = [
   {
     name: "Davide",
@@ -157,15 +159,38 @@ if (formLoginEL) {
 
 // Page User
 if (window.location.pathname.endsWith("page_user.html")) {
-  const email = sessionStorage.getItem("userEmail");
+  const emailSession = sessionStorage.getItem("userEmail");
   const viewEmailEl = document.createElement("h2");
-  viewEmailEl.innerHTML = email;
+  viewEmailEl.innerHTML = emailSession;
   divEmailEl.appendChild(viewEmailEl);
-  console.log((viewEmailEl.innerHTML = email));
+  console.log((viewEmailEl.innerHTML = emailSession));
   console.log(divEmailEl);
 
+  // async function getIscritto(email) {
+  //   try {
+  //     const url = `http://localhost:3080/gym/${email}`; // Costruisci l'URL
+  //     const response = await fetch(url, {
+  //       method: "GET",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //     });
+
+  //     if (!response.ok) {
+  //       throw new Error(`Errore nella richiesta: ${response.status}`);
+  //     }
+
+  //     const data = await response.json();
+  //     const emailIscritto = data.email;
+  //     console.log("Iscritto trovato:");
+  //     return { email: emailIscritto };
+  //   } catch (error) {
+  //     console.error("Errore durante la chiamata AJAX:", error);
+  //     throw error;
+  //   }
+  // }
   const trovataIscritto = iscritti.find((iscritto) => {
-    if (iscritto.email === email && "misura1" in iscritto) {
+    if (iscritto.email === emailSession && "misura1" in iscritto) {
       console.log(iscritto.misura1);
       const ulMisureEl = document.getElementById("ListMisure");
       ulMisureEl.classList.add("list-group");
